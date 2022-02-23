@@ -4,6 +4,7 @@ require("zephyr")
 require("plugin-config/bufferline")
 require("plugin-config/nvim-treesitter")
 require("plugin-config/telescope")
+require('plugin-config/nvim-tree')
 require("lsp/setup")
 require("lsp/nvim-cmp")
 -- utf8
@@ -65,7 +66,7 @@ vim.o.swapfile = false
 -- smaller updatetime 
 vim.o.updatetime = 300
 -- 等待mappings
-vim.o.timeoutlen = 100
+vim.o.timeoutlen = 300
 -- split window 从下边和右边出现
 -- vim.o.splitbelow = true
 -- vim.o.splitright = true

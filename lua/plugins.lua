@@ -24,5 +24,12 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
     use 'mfussenegger/nvim-dap'
     use "ellisonleao/glow.nvim"
+    use "kyazdani42/nvim-web-devicons"
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+    }
 
 end)

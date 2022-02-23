@@ -50,6 +50,8 @@ map("n", "<leader>f", ":Telescope find_files<CR>", opt)
 -- map("n", "<leader>f", ":Telescope find_files<CR>", opt)
 map("n", "<leader>g", ":Telescope live_grep<CR>", opt)
 
+-- nvim-tree快捷键配置
+map("n", "tt",":NvimTreeToggle<CR>",opt)
 
 
 
