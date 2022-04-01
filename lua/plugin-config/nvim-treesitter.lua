@@ -1,29 +1,36 @@
+local status, treesitter = pcall(require, "nvim-treesitter.configs")
+if not status then 
+    vim.notify("没有找到 nvim-treesitter")
+    return 
+end
+
 require'nvim-treesitter.configs'.setup {
-  -- 安装 language parser
-  -- :TSInstallInfo 命令查看支持的语言
-  ensure_installed = {"c", "cpp", "vim", "rust", "verilog", "lua"},
-  -- 启用代码高亮功能
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-    disable = {"lua"},
-  },
-  -- 启用增量选择
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<CR>',
-      node_incremental = '<CR>',
-      node_decremental = '<BS>',
-      scope_incremental = '<TAB>',
+    -- 安装 language parser
+    -- :TSInstallInfo 命令查看支持的语言
+    ensure_installed = {"c", "cpp", "vim", "rust", "verilog", "lua"},
+    -- 启用代码高亮功能
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+        disable = {"lua"},
+    },
+    -- 启用增量选择
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            node_decremental = '<BS>',
+            scope_incremental = '<TAB>',
+        }
+    },
+    -- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
+    indent = {
+        enable = true
     }
-  },
-  -- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
-  indent = {
-    enable = true
-  }
 }
 -- 开启 Folding
+-- zc,zo键
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 -- 默认不要折叠

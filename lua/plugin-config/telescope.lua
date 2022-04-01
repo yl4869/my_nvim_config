@@ -1,4 +1,10 @@
-require('telescope').setup{
+local status, telescope = pcall(require, "telescope")
+if not status then 
+    vim.notify("没有找到 telescope")
+    return 
+end
+pcall(telescope.load_extension, "projects")
+telescope.setup({
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -27,4 +33,4 @@ require('telescope').setup{
     -- }
     -- please take a look at the readme of the extension you want to configure
   }
-}
+})

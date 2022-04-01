@@ -1,4 +1,8 @@
-local lspkind = require('lspkind')
+local status, lspkind = pcall(require, 'lspkind')
+if not status then 
+    vim.notify("需要 lspkind插件")
+    return 
+end
 local cmp = require'cmp'
 
 cmp.setup {
@@ -30,8 +34,8 @@ cmp.setup {
     -- -- For snippy users.
     -- { name = 'snippy' },
   }, {
-	{ name = 'buffer' },
-	{ name = 'path' }
+    { name = 'buffer' },
+    { name = 'path' }
     }),
 
   -- 快捷键
@@ -47,7 +51,7 @@ cmp.setup {
         return vim_item
       end
     })
-  },
+  }
 }
 
 -- Use buffer source for `/`.
