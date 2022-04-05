@@ -70,5 +70,11 @@ return require('packer').startup(function()
 
     use 'davidgranstrom/nvim-markdown-preview'
 
+    -- 彩虹括号
+    use 'p00f/nvim-ts-rainbow'
+
+    --easy motion
+    use 'easymotion/vim-easymotion'
+
 end
 )
