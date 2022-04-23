@@ -1,8 +1,8 @@
 # 简介
-参考https://github.com/nshen/learn-neovim-lua获得了配置方法  
+参考 https://github.com/nshen/learn-neovim-lua 获得了配置方法  
 
 # 用法  
-解压，并放到~/.config/目录,请确保你安装了neovim    
+解压，并放到~/.config/目录, 请确保你安装了neovim    
 
 打开nvim，使用```:PackerSycn```安装所有插件.退出重新启动,程序将会自动安装已存在的lsp服务.
 
