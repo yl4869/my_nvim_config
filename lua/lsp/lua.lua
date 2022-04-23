@@ -5,8 +5,7 @@ table.insert(runtime_path, 'lua/?/init.lua')
 
 local opts = {
     settings = {
-        Lua = {
-            runtime = {
+        Lua = { runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
                 -- Setup your lua path
@@ -31,7 +30,7 @@ local opts = {
         debounce_text_changes = 150,
     },
     on_attach = function(client, bufnr)
-        -- 禁用格式化功能，交给专门插件插件处理
+        -- 禁用格式化功能，交给专门插件处理
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
 
