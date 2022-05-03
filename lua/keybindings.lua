@@ -57,9 +57,9 @@ map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 map("n", "<leader>i", "gg=G", opt)
 
 -- Telescope
-map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+map("n", "<C-f>", ":Telescope find_files<CR>", opt)
 -- map("n", "<leader>f", ":Telescope find_files<CR>", opt)
-map("n", "<leader>f", ":Telescope live_grep<CR>", opt)
+map("n", "<C-p>", ":Telescope live_grep<CR>", opt)
 
 -- 终端相关
 map("n", "<leader>t", ":sp | terminal<CR>", opt)
@@ -82,7 +82,7 @@ pluginKeys.nvimTreeList = {
 	{ key = "i", action = "toggle_ignored" }, -- Ignore (node_modules)
 	{ key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
 	-- 文件操作
-	{ key = "<F5>", action = "refresh" },
+	{ key = "R", action = "refresh" },
 	{ key = "a", action = "create" },
 	{ key = "d", action = "remove" },
 	{ key = "r", action = "rename" },
