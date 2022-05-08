@@ -8,7 +8,7 @@ local opt = { noremap = true, silent = true }
 
 -- 映射快速保存和退出 map("n","<leader>w", ":w<CR>",opt)
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>q", ":wq<CR>", opt)
+map("n", "<leader>q", ":w<CR>:bd<CR>", opt)
 map("n", "<leader>a", ":wqa<CR>", opt)
 
 -- ctrl+u/ctrl+d移动9行
