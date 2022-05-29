@@ -3,6 +3,18 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 local opts = {
 	settings = {
 		Lua = {
@@ -32,8 +44,16 @@ local opts = {
 	},
 	on_attach = function(client, bufnr)
 		-- 禁用格式化功能，交给专门插件处理
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					lsp_formatting(bufnr)
+				end,
+			})
+		end
 
 		local function buf_set_keymap(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -41,7 +61,7 @@ local opts = {
 		-- 绑定快捷键
 		require("keybindings").mapLSP(buf_set_keymap)
 		-- 保存时自动格式化
-		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+		-- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 	end,
 }
 

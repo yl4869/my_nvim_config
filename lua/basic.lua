@@ -26,7 +26,7 @@ vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.o.autoindent = true
 vim.bo.autoindent = true
-vim.o.smartindent = true
+-- vim.o.smartindent = true
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -73,3 +73,4 @@ vim.o.showtabline = 2
 
 vim.o.list = false
 vim.o.listchars = "space:·"
+vim.o.guifont = " Nerd Fira Font"
